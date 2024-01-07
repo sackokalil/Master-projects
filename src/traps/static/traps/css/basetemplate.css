@@ -1,0 +1,105 @@
+ body {
+            background-color: #f7f7f7;  /* Fond de couleur plus claire */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* Styles pour la contenu principal */
+        main {
+            flex: 1;
+            text-align: center;
+            padding-top: 60px; /* Ajout d'une marge pour compenser la hauteur de la navbar */
+            margin-bottom: 60px; /* Ajout d'une marge basse équivalente à la hauteur du footer */
+        }
+        /* Centrage horizontal du contenu */
+        .centered-content {
+            margin: 0 auto;
+            max-width: 800px; /* Largeur maximale du contenu */
+            padding: 20px;
+        }
+        /* Styles pour la navbar fixe */
+        nav {
+            background-color: #4c0bce; /*#444;*/
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        /* Styles pour le pied de page fixe */
+        footer {
+            background-color: #4c0bce; /* #333;*/
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+
+
+
+  /* cette section est pour l'affichage des la liste des personne piègé. */
+
+  /* Ajout de styles CSS pour espacer le tableau, ceci est pour laffichage de la trap_liste de app traps */
+            table {
+                border-collapse: collapse;
+                width: 60%;   /* Largeur du tableau */
+                margin: 20px auto; /* Marge autour du tableau */
+            }
+
+            th, td {
+                border: 1px solid #000;
+                padding: 8px;
+                text-align: center;
+                font-weight: bold; /* Ajout du style pour rendre le texte en gras */
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+
+            /* Ajout de styles pour l'espace en bas */
+            .bottom-space {
+                height: 50px; /* Ajustez la hauteur de l'espace */
+            }
+
+            /* Style pour l'icône de suppression */
+                .delete-icon {
+                width: 20px;
+                height: auto;
+                cursor: pointer;
+            }
+
+           /* Applique le style gras au titre */
+            h1 {
+                font-weight: bold;
+            }
+
+
+  /* cette section est pour le bouton de la suppression */
+  .btn {
+    padding: .5rem;
+    border:none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-radius: .3rem;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+}
+.btn-delete {
+    background-color: indianred;
+}
+

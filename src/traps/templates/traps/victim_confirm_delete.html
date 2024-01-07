@@ -1,0 +1,16 @@
+{% extends 'traps/basetemplate.html' %}
+
+{% block title %}
+    <title>delete-element</title>
+{% endblock %}
+
+
+{% block content %}
+
+    <form method="POST">
+      {% csrf_token %}
+      <p>Are you sure you wanna delete " <strong><i>{{ victim.email }}</i> </strong> " </p>
+      <input type="submit" value="Ja, Löschen" class="btn btn-delete">
+    </form>
+
+{% endblock %}

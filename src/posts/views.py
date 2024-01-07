@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import request
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
@@ -16,12 +17,13 @@ class BlogHome(ListView):
     # de notre model suivi de "_list.html" comme ceci: posts/blogpost_list. il suffit donc de creer ce fichier html
     # dans un dossier portant le nom de l'app, et le tout dans un dossier appélé "templates".
 
-    def get_queryset(self):  # ici on verifie si le user est connecté pour lui envoyer tous les article, sinon seulement ceux publiés.
+    def get_queryset(
+            self):  # ici on verifie si le user est connecté pour lui envoyer tous les article, sinon seulement ceux publiés.
         queryset = super().get_queryset()
         if self.request.user.is_authenticated:
             return queryset
-
-        return queryset.filter(published=True)
+        else:
+            return queryset.filter(published=True)
         # cette fonction est celle qui est automatiquement et implicitement appélée par ListView pour recuperer les donnees de la base
         # il s'agit ici donc d'une surcharge de cette fonction.
 
@@ -52,8 +54,7 @@ class BlogPostDelete(DeleteView):
     model = BlogPost
     context_object_name = "post"
     success_url = reverse_lazy("posts:home")  # permet de rediriger vers la home page après la suppression.
-    # cette classe DeleteView cherche automatiquement un template dont le nom est composé du nom du model et
+    # cette classe DeleteView cherche automatiquement un template dont le nom est composé du nom du model(pas de l'application) et
     # le suffix "_confirm_delete.html", comme ceci "blogpost_confirm_delete.html", il suffi donc de créer ce tempate
     # dans un dossier portant le nom de l'application le tout dans le dossier "templates" de l'application.
     # sinon on aurait tout simplement pu indiquer le nom de template à chercher comme on l'a fait dans la CreateView.
-

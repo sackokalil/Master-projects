@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'traps/css/basetemplate.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'traps:home' %}">Zu Hause</a>
+        <a href="{% url 'traps:amazon' %}">Traps</a>
+        <a href="{% url 'traps:list-trap' %}">ListTraps</a>
+    </nav>
+    <main>
+        <div class="centered-content">
+           {% block content %}
+
+            {% endblock  %}
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 SACKO KALIL</p>
+    </footer>
+</body>
+</html>
