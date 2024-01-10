@@ -67,4 +67,4 @@ class DeleteElement(DeleteView):
     #template_name = 'victim_confirm_delete.html'
     slug_field = 'slug'  # Utilise le champ slug comme référence pour extraire l'objet
     slug_url_kwarg = 'email_slug'  # Utilise le slug dans l'URL avec le nom 'email_slug'
-    success_url = reverse_lazy("traps:home")
+    success_url = reverse_lazy("traps:list-trap")

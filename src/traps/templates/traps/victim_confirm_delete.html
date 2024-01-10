@@ -9,7 +9,7 @@
 
     <form method="POST">
       {% csrf_token %}
-      <p>Are you sure you wanna delete " <strong><i>{{ victim.email }}</i> </strong> " </p>
+      <p> Sind Sie sich sicher " <strong><i>{{ victim.email }}</i> </strong> löschen zu wollen?" </p>
       <input type="submit" value="Ja, Löschen" class="btn btn-delete">
     </form>
 
