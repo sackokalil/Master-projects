@@ -1,0 +1,10 @@
+.messages {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .error {
+            color: red; /* Couleur rouge pour les messages d'erreur */
+            /* Autres styles CSS pour les messages d'erreur si nécessaire */
+        }
