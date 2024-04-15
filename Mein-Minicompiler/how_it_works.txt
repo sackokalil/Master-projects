@@ -1,0 +1,68 @@
+########################################################
+##    HIER IS THE SHORT EXPLANATION OF THE PROGRAMM  ###
+########################################################
+
+
+##################################
+#           SHELL                #
+#################################
+the file intitled "shell.py" is the file where all starts, by executing this file, we have the possibility to give inputs
+This file calls a function named "run" (located in the file "basic.py" in run section) and gives it the inputs received
+with the name of the file(in this cas "stdin" wich denotes, it was typed by the user ).
+
+###################################
+#             RUN                 #
+###################################
+The function run in basic.py file should receiv the two parameters(the name of the file and the text or input properly said).
+the function create then a Lexer object and give him the name of the file and the text and and ask the "make_tokens()"
+methode of this object to tokenize the text and wait to receive the a list of tokens.
+NB: the name of the file is useful in case of error, it'll help to locate the exact place where the error occured
+
+####################################
+#        LEXER                     #
+####################################
+In his turn, tries the lexer to tokinize the text. It will Iterate through the list(the text) character by character
+checking if the latter is a NUMBER  or  an OPERATOR in what cases it will be added to a list of TOKENS taking into 
+account the type of the caracter(whether integer or float when number or which operator it is). In each iteration throught
+the list(the text), the index of advancement position is taken into account which will be used later, in case of error
+ to print where exactly this is occured. At the end a list of TOKENS is returned to the RUN function in the case
+ where everithing went well, otherwise errors are returned.
+
+ THE RUN FUNCTION PASSES THIS LIST OF TOKENS TO THE PARSE METHODE OF A PARSER OBJECT, WHICH HAS TO BUILD THE SYNTAX TREE BASING ON A GRAMMAR RULE
+ DIFINED IN THE FILE NAMED "grammar.txt".
+
+###############################################
+#                   PARSER                    #
+###############################################
+the parser initialise some important parameters and the token list will be iterated through progressively.
+The parse method of the parser will call the expr method to construct the expression, which, in turn, will require the
+methods 'factor' and 'term' to return the respective parts of the expression. The latter will collaborate with the
+BinOpNode, UnaryOpNode, and NumberNode functions to take into account the order of operators' priority.
+During iterations, the index of advancement positions are taken into account, what will be passed to the error methodes
+in the event of errors occur.
+At the end of Iterations an ABSTRACT SYNTAX TREE IS BUILD.
+
+
+
+
+
+
+
+
+
+
+#########################################################################################
+#                                TACHE A FAIRE                                          #
+#########################################################################################
+
+tache de demain: var some_func = FUN (a)-> a + 6(chercher à comprendre de la tokenisation à l'interpretation)
+
+1) Essayer de comprendre comment le res.register(la fonction ParseResult fonction)
+2) comprendre comment le context fonction
+3) Comprendre comment la fonction as_tring de la classe Error fonctionne
+4) Se renseigner sur la fonction lambda de la fonction visit_ForNode de l'interpreter
+5) Bien chercher à comprendre comment res = RTResult() marche
+
+Nb: dans le parser j'ai modifié la condition du mot clé VAR, et j'ai ajouté aussi 'var' au cas ou c'est écrit en minuscule
+
+Ajouter la variable context à la classe intermediatecodegeneration, sa methode dois prendre ça, et une position
