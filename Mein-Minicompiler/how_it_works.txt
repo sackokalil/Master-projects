@@ -46,13 +46,20 @@ At the end of Iterations an ABSTRACT SYNTAX TREE IS BUILD. This abstract syntax 
 #############################################################################################
 #                           INTERMEDIATE CODE GENERATION                                    #
 #############################################################################################
-The methode 'generate' of 'IntermediateCodeGenerator' classe will receive the abstract syntax tree, extract different nodes and according to these create different instructions( when the node is a BinOpNode, a 'PUSH' instruction will be created for each of the two operands(for exemple PUSH 5) and  one of the five operations( ADD, SUB, MUL, DIV or POW) will be created for the operation according to the node.op_tok.type(the type of the operation)). 
+The methode 'generate' of 'IntermediateCodeGenerator' classe will receive the abstract syntax tree, 
+extract different nodes and according to these create different instructions( when the node is a BinOpNode, a 'PUSH' instruction will be created for each of the two operands(for exemple PUSH 5) 
+and  one of the five operations( ADD, SUB, MUL, DIV or POW) will be created for the operation according to the node.op_tok.type(the type of the operation)). 
 AFTER GENERATION OF THE INSTRUCTION, THIS LIST OF INSTRUCTION WILL BE PASSED TO THE 'ABSTRAKTSTACKMACHINE' CLASSE to be executed.
 
 #############################################################################################
 #                      ABSTRACTSTACKMACHINE : Abstrakte Kellermachine                       #
 #############################################################################################
-The methode 'execute' of abstracktstackmachine classe receive the list of instruction, create a stack where temporary values will be added anytime a PUSH instruction is found in the list. If another operation instruction is found the machine execute then the operation on the top temporary value of the stack(if the instruction is a unary operation, for exemple 'NEGATE'. when this is found then the last temporary value of the stack will be negated) or on the top two temporary values of the stack(if the instruction found is a binary operation, for exemple 'ADD') and readd the result on top of the stack. And after that the whole list is iterated and calculations are done in the stack, the final result will be the all top value of the stack.
+The methode 'execute' of abstracktstackmachine classe receive the list of instruction, create a stack where temporary 
+values will be added anytime a PUSH instruction is found in the list. If another operation instruction is found the machine execute 
+then the operation on the top temporary value of the stack(if the instruction is a unary operation, for exemple 'NEGATE'. when this is found then the last temporary value of the stack will be negated) 
+or on the top two temporary values of the stack(if the instruction found is a binary operation, for exemple 'ADD') and readd the result 
+on top of the stack. And after that the whole list is iterated and calculations are done in the stack, 
+the final result will be the all top value of the stack.
 
 
 
