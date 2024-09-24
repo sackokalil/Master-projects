@@ -71,8 +71,7 @@ Comment écrire un code en python permettant d'afficher l'AST
 L'expression à demontré lors de la presentation: 2*5+25-(3-5)*2-(25+15);  -2*56*(25+3)-(2*3)*2-6^2;
  2*56*(25+3)-(2*3)*2-6^2 ; 
 Nb: exemple d'erreur: Rentimeerror( 2*56*(25+3)-(2*3)*2-6^2/0; 2*56/(2*3+2-8) ), invalidsyntaxerror(2+(3*(52-10*3))25), illegalcharerror(2*(52-10*3)$25).
-la lecture des fichier.
 Commenter le programme
-detailler comment l'instruction intermediaire pour le contenu de exemple_expression est generée
+Detailler comment l'instruction intermediaire pour le contenu de exemple_expression est generée
 chercher à savoir comment les erreur marchent
-revoir how_it_works
+
