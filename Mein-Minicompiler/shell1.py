@@ -5,7 +5,7 @@ import os
 
 def read_file_or_input():
     while True:
-        file_path = input("Enter file path (or type 'q' to quit) : ")
+        file_path = input("Enter file path or press enter to type text (or type 'q' to quit) : ")
 
         if file_path.lower() == 'q':
             break  # Quit the exection
@@ -21,18 +21,18 @@ def read_file_or_input():
                         print(error.as_string())
                     else:
                         
-                        print("\n** TOKENLIST **\n", tokens)
+                        print("\n** TOKEN LIST **\n", tokens)
                         
-                        print("\n** ARBRE SYNTAXIQUE ABSTRAIT **\n", ast.node)
+                        print("\n** ABSTRACT SYNTAX TREE **\n", ast.node)
                         
                         #basic1.PrintNode.print_node(ast.node)    # PrintNode class from basic1
                      
-                        print("\n** INSTRUCTIONS INTERMÉDIAIRES GÉNÉRÉES **\n")
+                        print("\n** GENERATED INTERMEDIATE INSTRUCTIONS **\n")
                         
                         for instruction in intermediate_code:
                             print(instruction)
                             
-                        print("\n** RÉSULTAT FINAL **\n", result)
+                        print("\n** FINAL RESULT **\n", result)
                         
             except Exception as e:
                 print("An error occured :", str(e))
@@ -46,18 +46,18 @@ def read_file_or_input():
                     print(error.as_string())
                     
                 else: 
-                    print (f"\n** TOKENLIST **\n{tokens}")
+                    print (f"\n** TOKEN LIST **\n{tokens}")
                     
-                    print (f"\n** ARBRE SYNTAXIQUE ABSTRAIT **\n{ast.node}")
+                    print (f"\n** ABSTRACT SYNTAX TREE **\n{ast.node}")
                     
                     #basic1.PrintNode.print_node(ast.node)
                     
-                    print (f"\n** INSTRUCTIONS INTERMÉDIAIRES GÉNÉRÉES **\n")
+                    print (f"\n** GENERATED INTERMEDIATE INSTRUCTIONS **\n")
                     
                     for intermediate_instruction in intermediate_code:
                         print(intermediate_instruction)
                         
-                    print (f"\n** RÉSULTAT FINAL **\n{result}")
+                    print (f"\n** FINAL RESULT **\n{result}")
                 break  
 
 
